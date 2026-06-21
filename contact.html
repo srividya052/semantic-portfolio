@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Set theme before paint to avoid a flash of incorrect theme */
+    (function () {
+      var stored = localStorage.getItem("portfolio-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <title>Contact | Jordan Lee Portfolio</title>
+  <meta name="description" content="Get in touch with Jordan Lee using the accessible contact form to discuss web development projects." />
+  <meta name="keywords" content="contact, hire developer, contact form, get in touch" />
+  <meta name="author" content="Jordan Lee" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jordanlee.dev/contact.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="site-title"><a href="index.html">Jordan Lee</a></p>
+      <div class="header-controls">
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-pressed="false"
+          aria-label="Switch to dark mode"
+        >
+          <span class="icon-sun" aria-hidden="true">&#9728;</span>
+          <span class="icon-moon" aria-hidden="true">&#9789;</span>
+        </button>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav-panel"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-panel" id="primary-nav-panel">
+        <div class="nav-panel-inner">
+          <nav class="main-nav" aria-label="Primary navigation">
+            <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section aria-labelledby="contact-heading">
+      <h1 id="contact-heading">Contact Me</h1>
+      <p>Fill out the form below and I'll get back to you as soon as possible. Fields marked with <span class="required-mark" aria-hidden="true">*</span><span class="visually-hidden"> (required)</span> are required.</p>
+
+      <div class="content-layout">
+        <article>
+
+          <form action="#" method="post" novalidate aria-describedby="form-instructions">
+            <p id="form-instructions" class="hint">All fields marked with an asterisk (*) must be completed before submitting.</p>
+
+            <div class="form-group">
+              <label for="name">Full Name <span class="required-mark" aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-required="true"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span class="required-mark" aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                autocomplete="email"
+                aria-describedby="email-hint"
+              />
+              <p id="email-hint" class="hint">We'll never share your email with anyone else.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                aria-describedby="phone-hint"
+              />
+              <p id="phone-hint" class="hint">Optional. Include country code if outside the US.</p>
+            </div>
+
+            <fieldset>
+              <legend>Preferred Contact Method</legend>
+              <div class="form-group">
+                <input type="radio" id="contact-email" name="contact-method" value="email" checked />
+                <label for="contact-email">Email</label>
+              </div>
+              <div class="form-group">
+                <input type="radio" id="contact-phone" name="contact-method" value="phone" />
+                <label for="contact-phone">Phone</label>
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="subject">Subject <span class="required-mark" aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                aria-required="true"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required-mark" aria-hidden="true">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                aria-required="true"
+                aria-describedby="message-hint"
+              ></textarea>
+              <p id="message-hint" class="hint">Please include as much detail as possible about your project.</p>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+
+        </article>
+
+        <aside aria-labelledby="contact-info-heading">
+          <h2 id="contact-info-heading">Other Ways to Reach Me</h2>
+          <ul>
+            <li><strong>Email:</strong> hello@jordanlee.dev</li>
+            <li><strong>Location:</strong> Remote / Worldwide</li>
+          </ul>
+          <ul class="social-links">
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in new tab)</span></a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Jordan Lee. All rights reserved.</p>
+      <nav aria-label="Social media links">
+        <ul class="social-links">
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
