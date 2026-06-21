@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Set theme before paint to avoid a flash of incorrect theme */
+    (function () {
+      var stored = localStorage.getItem("portfolio-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <title>Projects | Jordan Lee Portfolio</title>
+  <meta name="description" content="Browse a selection of web development projects by Jordan Lee, including responsive and accessible websites." />
+  <meta name="keywords" content="projects, web development portfolio, case studies, HTML CSS projects" />
+  <meta name="author" content="Jordan Lee" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jordanlee.dev/projects.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="site-title"><a href="index.html">Jordan Lee</a></p>
+      <div class="header-controls">
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-pressed="false"
+          aria-label="Switch to dark mode"
+        >
+          <span class="icon-sun" aria-hidden="true">&#9728;</span>
+          <span class="icon-moon" aria-hidden="true">&#9789;</span>
+        </button>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav-panel"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-panel" id="primary-nav-panel">
+        <div class="nav-panel-inner">
+          <nav class="main-nav" aria-label="Primary navigation">
+            <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section aria-labelledby="projects-heading">
+      <h1 id="projects-heading">My Projects</h1>
+      <p>A few selected projects that show my approach to accessible, responsive front-end development.</p>
+
+      <div class="card-grid">
+
+        <article class="card" aria-labelledby="project1-heading">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://placehold.co/400x220?text=Bakery+Website"
+            alt="Screenshot of a bakery website homepage with a hero image and navigation menu"
+            width="400"
+            height="220"
+          />
+          <h2 id="project1-heading">Local Bakery Website</h2>
+          <p>A responsive marketing site for a local bakery, including an online ordering form and accessible menu navigation.</p>
+          <ul class="tag-list" aria-label="Technologies used">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Accessibility</li>
+          </ul>
+          <a href="#" aria-label="View case study for Local Bakery Website (demo link)">View Project</a>
+        </article>
+
+        <article class="card" aria-labelledby="project2-heading">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://placehold.co/400x220?text=Task+Tracker"
+            alt="Screenshot of a task tracker application with a list of tasks and checkboxes"
+            width="400"
+            height="220"
+          />
+          <h2 id="project2-heading">Task Tracker App</h2>
+          <p>A lightweight task management tool with full keyboard support and ARIA live regions for status updates.</p>
+          <ul class="tag-list" aria-label="Technologies used">
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>ARIA</li>
+          </ul>
+          <a href="#" aria-label="View case study for Task Tracker App (demo link)">View Project</a>
+        </article>
+
+        <article class="card" aria-labelledby="project3-heading">
+          <img
+            loading="lazy"
+            decoding="async"
+            src="https://placehold.co/400x220?text=Nonprofit+Site"
+            alt="Screenshot of a nonprofit organization website with a donation call-to-action button"
+            width="400"
+            height="220"
+          />
+          <h2 id="project3-heading">Nonprofit Organization Site</h2>
+          <p>A donation-focused website built with high-contrast colors and screen-reader-friendly forms.</p>
+          <ul class="tag-list" aria-label="Technologies used">
+            <li>CSS Grid</li>
+            <li>WCAG AA</li>
+            <li>Forms</li>
+          </ul>
+          <a href="#" aria-label="View case study for Nonprofit Organization Site (demo link)">View Project</a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Jordan Lee. All rights reserved.</p>
+      <nav aria-label="Social media links">
+        <ul class="social-links">
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
