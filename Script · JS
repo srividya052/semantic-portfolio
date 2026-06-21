@@ -1,0 +1,120 @@
+/* ===========================================================
+   script.js — Theme toggle + responsive mobile navigation
+   No dependencies. Progressive enhancement: site is fully
+   usable with CSS/HTML alone if JS fails to load.
+   =========================================================== */
+
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "portfolio-theme";
+  var root = document.documentElement;
+
+  /* ---------------- Theme toggle ---------------- */
+  function getPreferredTheme() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") {
+      return stored;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    var toggleBtn = document.getElementById("theme-toggle");
+    if (toggleBtn) {
+      toggleBtn.setAttribute(
+        "aria-pressed",
+        theme === "dark" ? "true" : "false"
+      );
+      toggleBtn.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      );
+    }
+  }
+
+  function initTheme() {
+    applyTheme(getPreferredTheme());
+
+    var toggleBtn = document.getElementById("theme-toggle");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        var current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+        var next = current === "dark" ? "light" : "dark";
+        applyTheme(next);
+        localStorage.setItem(STORAGE_KEY, next);
+      });
+    }
+
+    /* Keep in sync with OS-level changes if user hasn't made an explicit choice */
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener(
+        "change",
+        function (event) {
+          if (!localStorage.getItem(STORAGE_KEY)) {
+            applyTheme(event.matches ? "dark" : "light");
+          }
+        }
+      );
+    }
+  }
+
+  /* ---------------- Mobile navigation ---------------- */
+  function initNav() {
+    var navToggle = document.querySelector(".nav-toggle");
+    var navPanel = document.getElementById("primary-nav-panel");
+
+    if (!navToggle || !navPanel) {
+      return;
+    }
+
+    function closeNav() {
+      navToggle.setAttribute("aria-expanded", "false");
+      navPanel.classList.remove("is-open");
+    }
+
+    function openNav() {
+      navToggle.setAttribute("aria-expanded", "true");
+      navPanel.classList.add("is-open");
+    }
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    /* Close menu when a nav link is clicked (mobile) */
+    navPanel.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeNav);
+    });
+
+    /* Close menu on Escape key for keyboard users */
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeNav();
+        navToggle.focus();
+      }
+    });
+
+    /* Reset menu state when resizing up to desktop so it doesn't stay "open" */
+    var mq = window.matchMedia("(min-width: 600px)");
+    function handleViewportChange(e) {
+      if (e.matches) {
+        closeNav();
+      }
+    }
+    mq.addEventListener("change", handleViewportChange);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initTheme();
+    initNav();
+  });
+})();
