@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jordan Lee | Front-End Developer Portfolio</title>
+    <meta name="description"
+        content="Jordan Lee is a front-end developer specializing in accessible, responsive websites built with semantic HTML, CSS, and JavaScript." />
+    <meta name="keywords"
+        content="portfolio, front-end developer, web developer, HTML, CSS, accessibility, Jordan Lee" />
+    <meta name="author" content="Jordan Lee" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jordanlee.dev/" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Skip link for keyboard/screen reader users to bypass navigation -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <p class="site-title"><a href="index.html">Jordan Lee</a></p>
+            <nav class="main-nav" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main id="main-content">
+
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-text">
+                <h1 id="hero-heading">Hi, I'm Jordan Lee</h1>
+                <p>I'm a front-end developer who builds fast, accessible, and visually clean websites. I care deeply
+                    about writing semantic markup that works for everyone, including people using screen readers and
+                    keyboard navigation.</p>
+                <a class="btn" href="projects.html">View My Work</a>
+            </div>
+            <img class="hero-photo" src="https://placehold.co/200x200?text=Photo"
+                alt="Portrait photo of Jordan Lee smiling at the camera" width="200" height="200" />
+        </section>
+
+        <section aria-labelledby="skills-heading">
+            <h2 id="skills-heading">What I Do</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Accessible Web Design</h3>
+                    <p>I build interfaces that follow WCAG guidelines so they work for the widest possible audience.</p>
+                </article>
+                <article class="card">
+                    <h3>Responsive Layouts</h3>
+                    <p>Every site I build adapts cleanly from small phones to large desktop monitors.</p>
+                </article>
+                <article class="card">
+                    <h3>Clean Semantic Code</h3>
+                    <p>I write HTML that describes meaning, not just appearance, making code easier to maintain and
+                        understand.</p>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="cta-heading">
+            <h2 id="cta-heading">Let's Work Together</h2>
+            <p>Have a project in mind or want to say hello? I'd love to hear from you.</p>
+            <a class="btn" href="contact.html">Get in Touch</a>
+        </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 Jordan Lee. All rights reserved.</p>
+            <nav aria-label="Social media links">
+                <ul class="social-links">
+                    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+
+</html>
